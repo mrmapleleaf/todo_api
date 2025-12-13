@@ -10,12 +10,13 @@ class ToDoItem:
     created_at: datetime
     updated_at: datetime
 
-    @classmethod
+    @staticmethod
+    # DBから取得したToDoモデルをDTOに変換するメソッド
     def from_model(todo):
-        return ToDoItem(
-            id=todo.id,
-            title=todo.title,
-            is_completed=todo.is_completed,
-            created_at=todo.created_at,
-            updated_at=todo.updated_at,
-        )
+        return {
+            "id": todo.id,
+            "title": todo.title,
+            "is_completed": todo.is_completed,
+            "created_at": todo.created_at,
+            "updated_at": todo.updated_at,
+        }
