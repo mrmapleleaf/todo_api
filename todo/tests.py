@@ -23,3 +23,17 @@ class ToDoApiTest(TestCase):
         self.assertIn("application/json", response["Content-Type"])
         self.assertContains(response, "test01")
         self.assertContains(response, "test02")
+
+    def test_create_todo(self):
+        self.client.login(username="testuser", password="testpass")
+        response = self.client.post(
+            "/todo/create/",
+            {
+                "title": "test03",
+                "is_completed": False,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("application/json", response["Content-Type"])
+        self.assertEquals(response.json().get("id"), 3)
+        self.assertEquals(response.json().get("message"), "ToDo created successfully")
