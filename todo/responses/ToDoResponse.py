@@ -8,7 +8,7 @@ class ToDoResponse:
 
     @staticmethod
     # DBから取得したToDoモデルをDTOに変換するメソッド
-    def from_model(todo):
+    def create_response(todo):
         return {
             "id": todo.id,
             "message": "ToDo created successfully",
