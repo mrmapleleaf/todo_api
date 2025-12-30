@@ -22,7 +22,7 @@ class TestCreateToDo(TestCase):
                 "is_completed": False,
             },
         )
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 201)
         self.assertIn("application/json", response["Content-Type"])
         self.assertEquals(response.json().get("id"), 3)
         self.assertEquals(response.json().get("message"), "ToDo created successfully")
