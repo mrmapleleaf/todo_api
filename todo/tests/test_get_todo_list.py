@@ -17,7 +17,7 @@ class TestGetToDoList(TestCase):
     # スネークケースにしないとテストとして認識されない
     def test_get_todo_list(self):
         self.client.login(username="testuser", password="testpass")
-        response = self.client.get("/todos/")
+        response = self.client.get("/todos")
 
         self.assertEqual(response.status_code, 200)
         self.assertIn("application/json", response["Content-Type"])

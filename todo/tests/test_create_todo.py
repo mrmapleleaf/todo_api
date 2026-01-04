@@ -16,7 +16,7 @@ class TestCreateToDo(TestCase):
     def test_create_todo(self):
         self.client.login(username="testuser", password="testpass")
         response = self.client.post(
-            "/todo/create/",
+            "/todo/create",
             {
                 "title": "test03",
                 "is_completed": False,
